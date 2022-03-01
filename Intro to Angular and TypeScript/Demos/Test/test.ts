@@ -7,7 +7,8 @@ console.log(isOpen);
 
 
 enum UserRole {
-
+  Admin,
+  Client
 }
 
 interface IUserNewData {
@@ -18,7 +19,8 @@ interface IUserNewData {
 class Person {
     constructor(
         public name: string,
-        public age: number) 
+        public age: number,
+        public role: UserRole) 
         { }
 
     setData(newData: IUserNewData) {
@@ -31,7 +33,7 @@ class Person {
     }
 }
 
-const ivan: Person = new Person('Ivan', 30);
+const ivan: Person = new Person('Ivan', 30, UserRole.Admin);
 const newData: IUserNewData ={ newAge: 30, newName: 'Pesho'};
 
 ivan.setData(newData);
