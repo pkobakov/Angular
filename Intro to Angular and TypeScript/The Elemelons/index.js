@@ -90,6 +90,6 @@ var Melolemonmelon = /** @class */ (function (_super) {
 exports.Melolemonmelon = Melolemonmelon;
 var watermelon = new Watermelon(12.5, 'Kingsize');
 console.log(watermelon.toString());
-var melolemonmelon = new Melolemonmelon(10.5, 'Generic');
+var melolemonmelon = new Melolemonmelon(10.5, 'Special');
 melolemonmelon.morph(1);
 console.log(melolemonmelon.toString());

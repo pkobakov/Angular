@@ -73,7 +73,7 @@ export class Melolemonmelon extends Melon {
 let watermelon: Watermelon = new Watermelon(12.5, 'Kingsize');
 console.log(watermelon.toString());
 
-let melolemonmelon: Melolemonmelon = new Melolemonmelon(10.5, 'Generic');
+let melolemonmelon: Melolemonmelon = new Melolemonmelon(10.5, 'Special');
 melolemonmelon.morph(1);
 console.log(melolemonmelon.toString());
 
