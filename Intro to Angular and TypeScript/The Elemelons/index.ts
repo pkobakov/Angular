@@ -64,32 +64,16 @@ export class Melolemonmelon extends Melon {
         this.index = 0;
     }
 
-    public morph(): void {
+    public morph(index: number): void {
         this.element = this.elements[this.index];
-        this.index++;
-
-        if (this.index >= this.elements.length) {
-            this.index = 0;
-        }
+        console.log(`This element is set to ${this.element}`);
     }
 }
 
 let watermelon: Watermelon = new Watermelon(12.5, 'Kingsize');
 console.log(watermelon.toString());
 
-let melolemonmelon: Melolemonmelon = new Melolemonmelon(10.5, 'Custom');
-melolemonmelon.morph();
+let melolemonmelon: Melolemonmelon = new Melolemonmelon(10.5, 'Generic');
+melolemonmelon.morph(1);
 console.log(melolemonmelon.toString());
 
-// Create classes 
-// Watermelon, 
-// Firemelon, 
-// Earthmelon,
-// Airmelon. 
-// Each of them should inherit the abstract class Melon
-// and its functionality.
-// Aside from the abstract functionality,
-// each of the Elemelons should have property
-// elementIndex (Number), which is equal to its weight
-// the string length of its melonSort.
-// The property should have only a getter.
