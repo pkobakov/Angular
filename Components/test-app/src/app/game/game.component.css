@@ -1,0 +1,23 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #190E4F;
+}
+
+ul {
+    list-style: none;
+}
+
+li { font-family: Helvetica, sans-serif;}
+
+.wrapper {
+    width: 150px;
+}
+img {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #190E4F;
+}
