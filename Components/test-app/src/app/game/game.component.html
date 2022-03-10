@@ -1,12 +1,11 @@
 <ul>
     <li *ngFor='let game of games'>
         <section>
-            <h3>Game: {{game.title}}</h3>
-            <p>Price: {{game.price}}</p>
+            <h3 [style.color]="'red'">Game: {{game.title}}</h3>
+            <p *ngIf="game.price > 5">Price: {{game.price}}</p>
             <div class="wrapper">
                 <img [src]="game.img" alt="game image">
             </div>
-            
         </section>
     </li>
 </ul>

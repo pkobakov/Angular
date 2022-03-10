@@ -11,13 +11,18 @@ ul {
     list-style: none;
 }
 
-li { font-family: Helvetica, sans-serif;}
+li { 
+    font-family: Helvetica, sans-serif;
+    
+}
 
 .wrapper {
     width: 150px;
 }
 img {
+    
     width: 100%;
     padding: 10px;
     border: 2px solid #190E4F;
+    border-radius: 10px;
 }
