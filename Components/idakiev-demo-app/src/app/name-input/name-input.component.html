@@ -1,2 +1,3 @@
-<input type="text" [value]= 'inputValue'>
-<button (click)="btnClickHandler('successful')">Click here</button>
+<input type="text" [value]= 'inputValue' (keyup)="inputKeyupHandler($event)">
+<p>{{inputValue}}</p>
+<button (click)="btnClickHandler($event)">Click here</button>

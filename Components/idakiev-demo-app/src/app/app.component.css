@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #19647E;
+    background-image: url('https://images.idgesg.net/images/article/2020/02/cia-triad_security_triangle-glowing_binary_process_by-nolimit46-getty_2400x1600-100831589-large.jpg?auto=webp&quality=85,70');
+    background-size: cover;
+    object-fit: contain;
     width: 90%;
     height: 1200px;
     margin: 0 auto;
