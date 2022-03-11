@@ -25,6 +25,7 @@ const users = [
 export class AppComponent {
   title = 'idakiev-demo-app';
   welcomeMessage = 'Welcome to my demo app';
+  nameInputValue = 'Type something here...';
   isVisible = false;
   imageUrl : string;
 
