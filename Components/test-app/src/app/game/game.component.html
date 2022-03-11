@@ -1,8 +1,8 @@
-<ul>
+<ul #gamesContainer>
     <li *ngFor='let game of games'>
         <section>
-            <h3 [style.color]="'red'">Game: {{game.title}}</h3>
-            <p *ngIf="game.price > 5">Price: {{game.price}}</p>
+            <h3 [style.color]="'#28AFB0'">Game: {{game.title}}</h3>
+            <p [style.color]="priceTextColor" *ngIf="game.price > 5">Price: {{game.price}}</p>
             <div class="wrapper">
                 <img [src]="game.img" alt="game image">
             </div>
@@ -10,4 +10,10 @@
     </li>
 </ul>
 
-<button (click)="handleExpandContentClick()">Expand Content</button>
+<div >
+     Total games: {{gamesContainer.children.length}}
+</div>
+
+<button (click)="handleExpandContentClick(gamesContainer)">
+    {{priceShouldBePurple ?'Make the price green' : 'Make the price violet'}}
+</button>

@@ -26,3 +26,12 @@ img {
     border: 2px solid #190E4F;
     border-radius: 10px;
 }
+
+button {
+    background: #37392E;
+    color: white;
+    padding: 10px 15px;
+    margin: 20px 50px;
+    border: none;
+    border-radius: 4px;
+}
