@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-name-input',
@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NameInputComponent implements OnInit {
 
-  inputValue = 'Type something here...';
+  @Input()inputValue = 'Default value here...';
 
   constructor() { }
 
 
-  inputKeyupHandler(event: KeyboardEvent): void {
-    this.inputValue = (event.target as HTMLInputElement).value;
-  }
+  // inputKeyupHandler(event: KeyboardEvent): void {
+  //   this.inputValue = (event.target as HTMLInputElement).value;
+  // }
 
   btnClickHandler(value: any): void {
     console.log('btn has clicked', value);

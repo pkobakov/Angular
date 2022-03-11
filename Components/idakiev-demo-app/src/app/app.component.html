@@ -1,7 +1,8 @@
 <body>
   <div class="welcome-message">{{welcomeMessage}}</div>
+  <img [attr.src]="imageUrl" width="100px" />
 <section>
-  <app-name-input></app-name-input>
+  <app-name-input *ngIf="isVisible" inputValue="new text"></app-name-input>
 </section>
   <p *ngIf="isVisible">Surprice !!!!</p>
   <button (click)="toggleHandler()">

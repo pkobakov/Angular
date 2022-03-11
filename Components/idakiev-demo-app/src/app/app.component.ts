@@ -24,12 +24,15 @@ const users = [
 })
 export class AppComponent {
   title = 'idakiev-demo-app';
-  welcomeMessage = 'Hello from my app';
+  welcomeMessage = 'Welcome to my demo app';
   isVisible = false;
+  imageUrl : string;
 
   users = users;
 
   constructor(){
+
+    this.imageUrl = 'https://us.123rf.com/450wm/domenicogelermo/domenicogelermo1909/domenicogelermo190900265/129438391-front-portrait-of-the-woman-with-beauty-face-isolated.jpg?ver=6';
 
   }
 
