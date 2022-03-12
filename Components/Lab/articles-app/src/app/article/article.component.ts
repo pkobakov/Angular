@@ -8,11 +8,6 @@ import { Article } from '../models/article.models';
 })
 export class ArticleComponent implements OnInit {
   private symbols: number = 250;
-  constructor() {
-    this.articleDescLen = 0;
-    this.descToShow = '';
-  }
-
   @Input() article!: Article;
   @Input() articleDesc!: string;
   descToShow: string;
@@ -21,6 +16,12 @@ export class ArticleComponent implements OnInit {
   showHideBtn: boolean = false;
   imageIsShown: boolean = false;
   imageButtonTitle: string = 'Show Image';
+  constructor() {
+    this.articleDescLen = 0;
+    this.descToShow = '';
+  }
+
+ 
 
   ngOnInit(): void {
     
@@ -36,21 +37,5 @@ export class ArticleComponent implements OnInit {
     }
   }
 
-  public toggleImage(): void {
-    if (this.imageIsShown) {
-      this.imageIsShown = false;
-      this.imageButtonTitle = 'Show Image';
-    } else {
-      this.imageIsShown = true;
-      this.imageButtonTitle = 'Hide Image';
-    }
-  }
-
-  public hideDesc(): void {
-    this.descToShow = '';
-    this.articleDescLen = 0;
-    this.showReadMoreBtn = true;
-    this.showHideBtn = false;
-  }
 
 }
