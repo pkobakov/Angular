@@ -44,7 +44,7 @@ export class ArticleComponent implements OnInit {
     this.imageButtonTitle = this.imageButtonTitle === "Show Image"? "Hide Image": "Show Image";
   }
 
-  public hideDesk(): void {
+  public hideDesc(): void {
     this.descToShow = " ";
     this.articleDescLen = 0;
     this.showHideBtn = false;
