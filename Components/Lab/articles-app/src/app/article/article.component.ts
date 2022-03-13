@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Article } from '../models/article.models';
 
@@ -41,6 +42,13 @@ export class ArticleComponent implements OnInit {
   public toggleImage(): void {
     this.imageIsShown = !this.imageIsShown;
     this.imageButtonTitle = this.imageButtonTitle === "Show Image"? "Hide Image": "Show Image";
+  }
+
+  public hideDesk(): void {
+    this.descToShow = " ";
+    this.articleDescLen = 0;
+    this.showHideBtn = false;
+    this.showReadMoreBtn = true;
   }
 
 
