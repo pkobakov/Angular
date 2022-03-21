@@ -1,6 +1,8 @@
 
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
-import { HomeService } from '../Services/homeSerivce';
+import { HomeService } from '../Services/homeService';
+import { GithubProfile } from './github-profile';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +11,9 @@ import { HomeService } from '../Services/homeSerivce';
 })
 export class HomeComponent implements OnInit {
   somedata!: string;
+  profile!: GithubProfile
 
-  constructor(private homeService: HomeService){
+  constructor(private homeService: HomeService, private httpClient: HttpClient){
 
     this.somedata = homeService.getData();
     
@@ -18,6 +21,9 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.homeService
+        .getGithubProfile('pkobakov')
+        .subscribe(data => this.profile = data);
   }
 
 }
