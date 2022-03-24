@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ObjectUnsubscribedErrorCtor } from 'rxjs/internal/util/ObjectUnsubscribedError';
+import { Movies } from '../models/movies';
 import { MoviesService } from '../Services/movies-service';
 
 @Component({
@@ -9,18 +9,30 @@ import { MoviesService } from '../Services/movies-service';
 })
 export class MoviesComponent implements OnInit {
   
-  popular!: Object;
-  constructor(private moviesService: MoviesService) { 
+  popular!: Movies;
+  theaters!: Movies;
 
+  constructor(private moviesService: MoviesService) { 
+      
   }
 
   ngOnInit(): void {
+
     this.moviesService
         .getPopular()
         .subscribe(data => {
           this.popular = data;
-          console.log(data);
+          console.log(this.popular);
         })
+
+    this.moviesService
+                      .getTheaters()
+                      .subscribe(data => {
+                        this.theaters = data;
+                        console.log(this.theaters);
+                      })    
   }
+
+
 
 }

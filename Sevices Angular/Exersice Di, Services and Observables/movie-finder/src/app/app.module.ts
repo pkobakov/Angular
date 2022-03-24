@@ -10,12 +10,14 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 //Services
 import { MoviesService } from './Services/movies-service';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    NavigationComponent
+    NavigationComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
