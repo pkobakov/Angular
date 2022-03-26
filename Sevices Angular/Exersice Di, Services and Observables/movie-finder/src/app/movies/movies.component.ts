@@ -13,10 +13,22 @@ export class MoviesComponent implements OnInit {
   theaters!: Movies;
   kids!: Movies;
   dramas! : Movies;
-
+  searchResponse: any;
+  isSearched!: boolean;
 
   constructor(private moviesService: MoviesService) { 
       
+  }
+
+  search(myQuery : any) {
+    let value = myQuery['search']
+    this.moviesService.findAMovie(value)
+                      .subscribe(data => {
+                      this.searchResponse = data;
+                      console.log(this.searchResponse)
+                      this.isSearched = true;
+      
+    })
   }
 
   ngOnInit(): void {
@@ -24,13 +36,11 @@ export class MoviesComponent implements OnInit {
     this.moviesService.getPopular()
                       .subscribe(data => {
                       this.popular = data;
-                      console.log(this.popular);
         })
 
     this.moviesService.getTheaters()
                       .subscribe(data => {
                         this.theaters = data;
-                        console.log(this.theaters);
                       }) 
                       
     this.moviesService.getKids()

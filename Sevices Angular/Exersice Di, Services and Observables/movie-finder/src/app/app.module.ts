@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule, Route} from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 //Components
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { MoviesService } from './Services/movies-service';
 import { MovieComponent } from './movie/movie.component';
 import { SelectedMovieComponent } from './selected-movie/selected-movie.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,11 +26,14 @@ import { SelectedMovieComponent } from './selected-movie/selected-movie.componen
   ],
   imports: [
     BrowserModule,
-    HttpClientModule, 
+    HttpClientModule,
+    FormsModule, 
     RouterModule.forRoot([
       { path: '', component: MoviesComponent},
-      { path: 'movie/:id', component: SelectedMovieComponent}])
+      { path: 'movie/:id', component: SelectedMovieComponent}]),
+   
   ],
+  
   providers: [MoviesService],
   bootstrap: [AppComponent]
 })
