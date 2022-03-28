@@ -14,6 +14,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { MoviesService } from './Services/movies-service';
 import { MovieComponent } from './movie/movie.component';
 import { SelectedMovieComponent } from './selected-movie/selected-movie.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SelectedMovieComponent } from './selected-movie/selected-movie.componen
     MoviesComponent,
     NavigationComponent,
     MovieComponent,
-    SelectedMovieComponent
+    SelectedMovieComponent,
+    TemplateDrivenFormComponent
   ],
   imports: [
     BrowserModule,
