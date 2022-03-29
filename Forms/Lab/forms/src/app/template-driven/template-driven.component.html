@@ -1,17 +1,17 @@
 <form #form="ngForm" (ngSubmit)="login(form.value)">
     <div class="form-group">
       <label for="">Laptop</label>
-      <input type="text" class="form-control" [(ngModel)]="laptop.make" name="laptop" >
+      <input type="text" class="form-control" [(ngModel)]="laptop.make" name="make" >
     </div>
     <div class="form-group">
       <label for="">Email address</label>
-      <input type="email" (click)="field(emailField)" class="form-control" #emailField name="email" ngModel required>
-      <div class="alert alert-warning" *ngIf="emailField.required">Email is required</div>
+      <input type="email" (click)="field(emailField)" class="form-control" #emailField="ngModel" name="email" ngModel required>
+      <div class="alert alert-warning" *ngIf="emailField.touched">Email is required</div>
     </div>
     <div class="form-group">
       <label for="">Password</label>
       <input type="password" class="form-control" name="password" ngModel required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
   </form>
