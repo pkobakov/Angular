@@ -6,11 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-driven.component.css']
 })
 export class TemplateDrivenComponent implements OnInit {
-
-  constructor() { }
+  laptop: any;
+  constructor() { 
+    this.laptop = {"make": "Lenovo"}
+  }
 
   login(formData:any) {
     console.log(formData);
+  }
+
+  field(data: any) {
+    console.log(data);
   }
 
   ngOnInit(): void {
