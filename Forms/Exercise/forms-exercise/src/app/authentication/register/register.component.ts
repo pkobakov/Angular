@@ -7,7 +7,7 @@ import { RegisterModel } from '../models/register.model';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  model!: RegisterModel;
+  model: RegisterModel;
   constructor() {
     this.model = new RegisterModel('', '', '', '', '', '', 18);
   }
@@ -16,6 +16,8 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+
+    
     console.log('Registration...');
   }
 
