@@ -9,11 +9,14 @@ import { CoursesService } from '../courses.service';
 export class CoursesComponent implements OnInit {
 title: string;
 courses: string []
+imgUrl: string;
+colspan:number;
  
   constructor (service: CoursesService) { 
     this.title = 'List of Courses';
     this.courses = service.getCourses();
-   
+    this.imgUrl = 'https://miro.medium.com/fit/c/294/294/1*gcODMN4611oDGJuh1UfUmQ.jpeg';
+    this.colspan = 2;
 
   }
 

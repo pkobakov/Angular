@@ -1,4 +1,12 @@
 <h1>{{title}}</h1>
+<img [src]="imgUrl" width="200" alt="angular logo"/>
+<table>
+    <tr>
+        <td [attr.colspan]="colspan"></td>
+    </tr>
+</table>
 <ul>
     <li *ngFor="let course of courses">{{course}}</li>
+    
 </ul>
+<button class="btn btn-primary">Submit</button>
