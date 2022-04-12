@@ -9,4 +9,7 @@
     <li *ngFor="let course of courses">{{course}}</li>
     
 </ul>
-<button class="btn btn-primary">Submit</button>
+<div (click)="ondivclick()">
+    <button [style.backgroundColor]="isActive ? 'blue' : 'yellow'" (click)="onSave($event)">Savet</button>
+</div>
+

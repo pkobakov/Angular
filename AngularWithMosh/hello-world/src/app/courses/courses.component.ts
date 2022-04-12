@@ -11,16 +11,28 @@ title: string;
 courses: string []
 imgUrl: string;
 colspan:number;
+isActive:boolean;
  
   constructor (service: CoursesService) { 
     this.title = 'List of Courses';
     this.courses = service.getCourses();
     this.imgUrl = 'https://miro.medium.com/fit/c/294/294/1*gcODMN4611oDGJuh1UfUmQ.jpeg';
     this.colspan = 2;
+    this.isActive = false;
 
-  }
+    }
 
-  ngOnInit(): void {
-  }
+    onSave($event:any){
+
+      $event.stopPropagation();
+      console.log('Button was clicked', $event);
+    }
+
+    ondivclick(){
+      console.log('Div was clicked');
+    }
+
+    ngOnInit(): void {
+    }
 
 }
