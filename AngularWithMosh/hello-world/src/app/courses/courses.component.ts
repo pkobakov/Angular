@@ -32,6 +32,10 @@ isActive:boolean;
       console.log('Div was clicked');
     }
 
+    onkeyup(){
+      console.log('ENTER was pressed');
+    }
+
     ngOnInit(): void {
     }
 
