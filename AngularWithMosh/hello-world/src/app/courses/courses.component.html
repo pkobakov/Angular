@@ -10,7 +10,7 @@
     
 </ul>
 
-<input (keyup.enter)="onkeyup()" type="text"/>
+<input #someInput (keyup.enter)="onkeyup(someInput.value)" />
 
 <div (click)="ondivclick()">
     <button [style.backgroundColor]="isActive ? 'blue' : 'yellow'" (click)="onSave($event)">Save</button>
