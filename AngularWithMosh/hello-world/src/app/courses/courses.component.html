@@ -10,7 +10,7 @@
     
 </ul>
 
-<input #someInput (keyup.enter)="onkeyup(someInput.value)" />
+<input [(ngModel)]="email" (keyup.enter)="onkeyup()" />
 
 <div (click)="ondivclick()">
     <button [style.backgroundColor]="isActive ? 'blue' : 'yellow'" (click)="onSave($event)">Save</button>

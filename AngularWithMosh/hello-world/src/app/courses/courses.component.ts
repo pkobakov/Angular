@@ -32,8 +32,10 @@ isActive:boolean;
       console.log('Div was clicked');
     }
 
-    onkeyup(someInput:any){
-      console.log(someInput);
+    email: string ='me@example.com';
+
+    onkeyup(){
+      console.log(this.email);
     }
 
     ngOnInit(): void {
