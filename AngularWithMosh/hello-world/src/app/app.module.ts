@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCasePipe } from './title-case.pipe';
+import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TitleCasePipe } from './title-case.pipe';
     AuthorsComponent,
     SummaryPipe,
     FavoriteComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    BootstrapPanelComponent
   ],
   imports: [
     BrowserModule,
