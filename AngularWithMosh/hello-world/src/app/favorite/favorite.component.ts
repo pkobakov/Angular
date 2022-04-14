@@ -9,12 +9,12 @@ export class FavoriteComponent implements OnInit {
 
 
 
-@Input() isFavorite!:boolean;
+@Input('isFavorite') isSelected!:boolean;
 
   constructor() { }
 
   onclick(){
-    this.isFavorite = !this.isFavorite;
+    this.isSelected = !this.isSelected;
   }
 
   ngOnInit(): void {
