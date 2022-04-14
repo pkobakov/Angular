@@ -8,7 +8,7 @@
 
 <p>{{title | titleCase}}</p> -->
 
-<favorite [isFavorite]="post.isFavorite"></favorite>
+<favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChanged()"></favorite>
 
 <!-- <app-course></app-course> -->
 
