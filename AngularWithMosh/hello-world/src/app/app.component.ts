@@ -11,26 +11,31 @@ interface FavoriteEventObject {
 })
 export class AppComponent {
 
+  
+
   title :string = 'Angular with Mosh Hamedani';
   imgUrl:string = 'https://ih1.redbubble.net/image.794225727.9827/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg';
 
-  courses = [1,2];
 
-  tweet = {
-    body: '....',
-    likesCount: 10,
-    isLiked : true
+  viewMode = 'map';
 
-  };
+//   courses = [1,2];
 
-  post = {
-    title : ' ',
-    isFavorite : true 
-  }
+//   tweet = {
+//     body: '....',
+//     likesCount: 10,
+//     isLiked : true
 
-  onFavoriteChanged(eventObject: FavoriteEventObject){
+//   };
 
-  console.log('Favorite changed', eventObject);
-}
+//   post = {
+//     title : ' ',
+//     isFavorite : true 
+//   }
+
+//   onFavoriteChanged(eventObject: FavoriteEventObject){
+
+//   console.log('Favorite changed', eventObject);
+// }
 
 }
