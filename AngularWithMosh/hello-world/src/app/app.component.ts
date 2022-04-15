@@ -10,7 +10,15 @@ interface FavoriteEventObject {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title!:string;
+
+  tweet = {
+    body: '....',
+    likesCount: 10,
+    isLiked : true
+
+  };
 
   post = {
     title : 'Title',
