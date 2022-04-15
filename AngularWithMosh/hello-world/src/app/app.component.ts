@@ -15,9 +15,14 @@ export class AppComponent {
 
   title :string = 'Angular with Mosh Hamedani';
   imgUrl:string = 'https://ih1.redbubble.net/image.794225727.9827/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg';
+  
 
+  courses = [
+    {id: 1, name: 'courseOne'},
+    {id: 2, name: 'courseTwo'},
+    {id: 3, name: 'courseThree'}];
 
-  viewMode = 'map';
+ //  viewMode = 'map';
 
 //   courses = [1,2];
 
