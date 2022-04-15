@@ -1,36 +1,21 @@
-<div class="card" style="width: 30rem;">
-    <h1 class="display-3 text-center">Angular with Mosh</h1>
-    <img src="https://www.infragistics.com/community/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-09-43/7750.angular.jpg_2D00_774x492.jpg" width="100%" alt="angular"/>
-</div>
+<nav class="nav">
+    <img [src]="imgUrl" width="150px" alt="angular"/>
+    <h1 class="display-3">{{title}}</h1>
+    
+</nav>
 
 
-<like 
+<div *ngIf="courses.length > 0; then coursesList else noCourses"></div>
+<ng-template #coursesList>List of courses</ng-template>
+<ng-template #noCourses>No courses yet</ng-template>
+
+
+
+<!-- <like 
 [isActive]="tweet.isLiked" 
 [likesCount]="tweet.likesCount" >
 
-</like>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</like> -->
 
 <!-- <bootstrap-panel >
     <ng-container class="header">Heading</ng-container>
