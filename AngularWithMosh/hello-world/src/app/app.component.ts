@@ -22,6 +22,18 @@ export class AppComponent {
     {id: 2, name: 'courseTwo'},
     {id: 3, name: 'courseThree'}];
 
+  onAdd(){
+    const newCourse = {id:4, name: 'courseFour'};
+    this.courses.push(newCourse);
+
+  }  
+
+  onRemove(course:any) {
+
+    let index =  this.courses.indexOf(course);
+    this.courses.splice(index,1);
+  }
+
  //  viewMode = 'map';
 
 //   courses = [1,2];
