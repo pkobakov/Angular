@@ -11,7 +11,7 @@ interface FavoriteEventObject {
 })
 export class AppComponent {
 
-  
+  canSave = true;
 
   title :string = 'Angular with Mosh Hamedani';
   imgUrl:string = 'https://ih1.redbubble.net/image.794225727.9827/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg';

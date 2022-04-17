@@ -2,10 +2,23 @@
     <img [src]="imgUrl" width="100px" alt="angular"/>
     <h1 class="display-3">{{title}}</h1>
 </nav>
-<button class="bnt btn-info" (click)="onAdd()">Add</button>
+
+<!-- <button [style.backgroundColor]="canSave? 'blue': 'gray'"
+        [style.color]="canSave? 'white': 'black'"
+        [style.fontWeight]="canSave ? 'bold': 'normal'" -->
+   <button     
+        [ngStyle]="{
+        'backgroundColor': canSave ? 'blue': 'gray',
+        'color': canSave ? 'white': 'black',
+         'font-weight': canSave ? 'bold': 'normal'
+        }" >
+    Save
+</button>
+
+<!-- <button class="bnt btn-info" (click)="onAdd()">Add</button>
 <ul style="list-style: none">
    <li *ngFor="let course of courses; index as i">{{i+1}}. {{course.name}}<button class="btn btn-danger" (click)="onRemove(course)">Remove</button></li>
-</ul>
+</ul> -->
 
 <!-- <ul style="list-style: none;">
     <li *ngFor="let course of courses; even as isEven; index as i">{{i+1}}. {{course.name}}<span *ngIf="isEven"> > Is even</span></li>
