@@ -11,6 +11,13 @@ interface FavoriteEventObject {
 })
 export class AppComponent {
 
+  task = {
+    title: 'review application',
+    asignee :{ 
+       name: 'John Smith'
+    }
+  }
+
   canSave = true;
 
   title :string = 'Angular with Mosh Hamedani';
