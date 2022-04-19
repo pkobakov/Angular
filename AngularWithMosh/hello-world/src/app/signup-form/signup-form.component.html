@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="submit(form.value)">
+    <div class="mb-3">
+      <label for="username" class="form-label">Email address</label>
+      <input formControlName="username"
+             type="text" 
+             class="form-control" 
+             id="username">
+             <span *ngIf="username?.invalid && username?.touched"
+                   class="alert alert-danger">
+               Username is required.
+            </span>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input formControlName="password"
+             type="password" 
+             class="form-control"
+             id="password">
+             <span *ngIf="password?.invalid && password?.touched"
+                  class="alert alert-danger">
+                  Password is required.
+            </span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
