@@ -1,42 +1,45 @@
 <form [formGroup]="form" (ngSubmit)="login()">
   <div *ngIf="form.errors" 
         class="alert alert-danger">
-        The Username or password is invalid.
+        The Username or Password is invalid.
       </div>
-    <div class="mb-3">
-      <label for="username" class="form-label">Username</label>
-      <input formControlName="username"
-             type="text" 
-             class="form-control" 
-             id="username">
-             <div *ngIf="username?.pending">Checking for uniqueness...</div>
-             <span *ngIf="username?.invalid && username?.touched"
-                   class="alert alert-danger">
-                   <span *ngIf="username?.errors?.['required']">
-                     Username is required.
-                   </span>
-                   <span *ngIf="username?.errors?.['minlength']">
-                     Username should heave at least 3 characters.
-                    </span>
-                    <span *ngIf="username?.errors?.['cannotContainSpace']">
-                      Username cannot contain space.
-                    </span>
-                    <span *ngIf="username?.errors?.['shouldBeUnique']">
-                      Username already taken.
-                    </span>
+    <div formGroupName="account">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input formControlName="username"
+               type="text" 
+               class="form-control" 
+               id="username">
+               <div *ngIf="username?.pending">Checking for uniqueness...</div>
+               <span *ngIf="username?.invalid && username?.touched"
+                     class="alert alert-danger">
+                     <span *ngIf="username?.errors?.['required']">
+                       Username is required.
+                     </span>
+                     <span *ngIf="username?.errors?.['minlength']">
+                       Username should heave at least 3 characters.
+                      </span>
+                      <span *ngIf="username?.errors?.['cannotContainSpace']">
+                        Username cannot contain space.
+                      </span>
+                      <span *ngIf="username?.errors?.['shouldBeUnique']">
+                        Username already taken.
+                      </span>
+                </span>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input formControlName="password"
+               type="password" 
+               class="form-control"
+               id="password">
+               <span *ngIf="password?.invalid && password?.touched"
+                    class="alert alert-danger">
+                    Password is required.
               </span>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input formControlName="password"
-             type="password" 
-             class="form-control"
-             id="password">
-             <span *ngIf="password?.invalid && password?.touched"
-                  class="alert alert-danger">
-                  Password is required.
-            </span>
-    </div>
+      </div>
+    </div>  
+
 
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
