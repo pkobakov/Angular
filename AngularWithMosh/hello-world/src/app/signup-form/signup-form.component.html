@@ -1,6 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="submit(form.value)">
     <div class="mb-3">
-      <label for="username" class="form-label">Email address</label>
+      <label for="username" class="form-label">Username</label>
       <input formControlName="username"
              type="text" 
              class="form-control" 
@@ -10,7 +10,12 @@
                    <span *ngIf="username?.errors?.['required']">
                      Username is required.
                    </span>
-                   <span *ngIf="username?.errors?.['minlength']">Username should heave at least 3 characters.</span>
+                   <span *ngIf="username?.errors?.['minlength']">
+                     Username should heave at least 3 characters.
+                    </span>
+                    <span *ngIf="username?.errors?.['cannotContainSpace']">
+                      Username cannot contain space.
+                    </span>
               </span>
     </div>
     <div class="mb-3">
