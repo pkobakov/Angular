@@ -16,6 +16,9 @@
                     <span *ngIf="username?.errors?.['cannotContainSpace']">
                       Username cannot contain space.
                     </span>
+                    <span *ngIf="username?.errors?.['shouldBeUnique']">
+                      Username already taken.
+                    </span>
               </span>
     </div>
     <div class="mb-3">
