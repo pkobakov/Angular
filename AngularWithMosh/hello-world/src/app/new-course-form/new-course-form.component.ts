@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'new-course-form',
@@ -19,21 +19,44 @@ export class NewCourseFormComponent implements OnInit {
   //    console.log(value);
   // }
 
-  form = new FormGroup ({
-    topics : new FormArray([])
-  });
+  // form = new FormGroup ({
+  //   topics : new FormArray([])
+  // });
  
-  get topics() {return <FormArray>this.form.get('topics')};
+  // get topics() {return <FormArray>this.form.get('topics')};
 
-  addTopic(topic: HTMLInputElement) {
-      this.topics.push(new FormControl(topic.value));
-      topic.value= '';
-  }
+  // addTopic(topic: HTMLInputElement) {
+  //     this.topics.push(new FormControl(topic.value));
+  //     topic.value= '';
+  // }
 
-  removeTopic(topic: any) {
-   let index= this.topics.controls.indexOf(topic);
-    this.topics.removeAt(index);
+  // removeTopic(topic: AbstractControl) {
+  //  let index= this.topics.controls.indexOf(topic);
+  //   this.topics.removeAt(index);
+  // }
+
+   form = new FormGroup ({
+      name: new FormControl(),
+      contact: new FormGroup({
+        email: new FormControl(),
+        phone: new FormControl()
+      }),
+      topics: new FormArray([])
+    });
+   
+  // FormBuilder of the above code is:
+  newForm: any;
+  constructor(builder: FormBuilder){
+  this.newForm = builder.group ({
+      name: ['', Validators.required],
+      contact: builder.group ({
+        email: [],
+        phone: []
+      })
+    });
+
   }
+   
 
   ngOnInit(): void {
   }
