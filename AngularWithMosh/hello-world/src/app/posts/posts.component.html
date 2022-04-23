@@ -1,0 +1,15 @@
+<!-- https://jsonplaceholder.typicode.com/posts -->
+<p class="lead">In this section we will use</p>
+<p><a [href]="url">https://jsonplaceholder.typicode.com/posts</a></p>
+
+<input (keyup.enter)="createPost(title)"
+       #title
+       type="text"
+       class="form-control">
+<ul class="list-group">
+    <li *ngFor="let post of posts" 
+        class="list-group-item">
+        {{post.title}}
+    </li>
+</ul>
+
