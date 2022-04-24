@@ -15,6 +15,7 @@ export class PostsComponent implements OnInit {
     
 
       http.get(this.url).subscribe(response => {
+        // console.log(response)
         this.posts = response;
       });
    }
@@ -27,6 +28,21 @@ export class PostsComponent implements OnInit {
               this.posts.splice(0,0,post)
             
             });
+   }
+
+   updatePost(post: Object){
+      this.http.patch(this.url + '/' + post, JSON.stringify({isRead: true}))
+               .subscribe(response => console.log(response));
+      // this.http.put(this.url + '/' + post, JSON.stringify(post))
+      //          .subscribe(response => console.log(response));
+   }
+
+   deletePost(post: Object) {
+     this.http.delete(`${this.url}/${post}`)
+              .subscribe(response => {
+                let index = this.posts.indexOf(post);
+                this.posts.splice(index, 1);
+              });
    }
 
   ngOnInit(): void {
