@@ -71,7 +71,7 @@ export class PostsComponent implements OnInit {
                 }  
               }, 
 
-               complete: () => console.log(`Post with id: ${JSON.stringify(post)} is deleted.`)
+               complete: () => console.log(`Post with id: ${JSON.stringify(post)} has been deleted.`)
             });
    }
 
