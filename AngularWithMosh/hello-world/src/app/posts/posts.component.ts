@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { of } from 'rxjs';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -9,17 +8,26 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-
-  
+     
+  url: string;
   posts : any;
   constructor(private service: PostService, ) {
+
+    this.url = service.url;
    }
 
 
    ngOnInit(): void {
-     this.service.getPosts().subscribe(response => {
+     this.service.getPosts().subscribe({
+       next: response => {
       console.log(response); 
       this.posts = response;
+    }, 
+       error: err => {alert('An unexpected error occures');
+       console.log(err);
+      },
+      
+      complete: () => console.log('All posts are loaded.')
     });
      
   }
@@ -43,11 +51,28 @@ export class PostsComponent implements OnInit {
    }
 
    deletePost(post: any) {
-             this.service.deletePost(post['id'])
-              .subscribe(response => {
-                let index = this.posts.indexOf(post);
-                this.posts.splice(index, 1);
-              });
+             this.service.deletePost(post)
+              .subscribe({ 
+                
+              next: response => {
+              let index = this.posts.indexOf(post);
+              this.posts.splice(index, 1);
+              },
+
+              error: (err: Response) => {
+                if (err.status === 404) {
+                  alert('This post has already been deleted.');
+                  console.log(err);
+                }
+
+                else {
+                  alert('An unexpected error occures.');
+                  console.log(err);
+                }  
+              }, 
+
+               complete: () => console.log(`Post with id: ${JSON.stringify(post)} is deleted.`)
+            });
    }
 
   
