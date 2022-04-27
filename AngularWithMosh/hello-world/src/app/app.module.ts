@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -22,6 +22,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
+import { AppErrorHandler } from './common/app-error-handler';
 
 
 @NgModule({
@@ -52,8 +53,12 @@ import { PostService } from './services/post.service';
   ],
 
 
-  providers: [CoursesService,
-  AuthorsService, PostService],
+  providers: [
+    CoursesService,
+    AuthorsService,
+    PostService,
+    {provide: ErrorHandler, useClass: AppErrorHandler}
+  ],
   bootstrap: [AppComponent]
 })
 

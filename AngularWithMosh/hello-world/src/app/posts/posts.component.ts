@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -12,6 +11,7 @@ export class PostsComponent implements OnInit {
   url: string;
   posts : any;
   errorMessage: string = '';
+
   constructor(private service: PostService, ) {
 
     this.url = service.url;
@@ -23,15 +23,8 @@ export class PostsComponent implements OnInit {
      .subscribe({
        next: response => {this.posts = response;
         console.log(response)
-    }, 
-
-        error: err => {
-         this.errorMessage = err;
-         alert(err);
-      },
-      
-      complete: () => {console.log('All posts are loaded.')}
-    });
+    }
+  });
      
   }
 
@@ -79,10 +72,7 @@ export class PostsComponent implements OnInit {
                   
                 }
 
-                else {
-                  alert('An unexpected error occures.');
-                  console.log(err);
-                }  
+                else throw err; 
               }, 
 
                complete: () => console.log(`Post: ${JSON.stringify(post)} has been deleted.`)
