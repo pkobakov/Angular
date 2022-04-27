@@ -18,16 +18,16 @@ export class PostsComponent implements OnInit {
 
 
    ngOnInit(): void {
-     this.service.getPosts().subscribe({
-       next: response => {
-      console.log(response); 
-      this.posts = response;
+     this.service.getPosts()
+     .subscribe({
+       next: response => {this.posts = response;
+        console.log(response)
     }, 
        error: err => {alert('An unexpected error occures');
        console.log(err);
       },
       
-      complete: () => console.log('All posts are loaded.')
+      complete: () => {console.log('All posts are loaded.')}
     });
      
   }
@@ -37,32 +37,43 @@ export class PostsComponent implements OnInit {
      let post : any = {title: input.value};
      input.value= '';
      this.service.createPost(post)
-              .subscribe((response : any) => { post['id'] = response['id'];
-              this.posts.splice(0,0,post)
-            
+              .subscribe({ 
+                next: (response: any) => { post['id'] = response.id;
+                this.posts.splice(0,0,post)
+              },
+
+               error: (err : Response) => {
+
+                if (err.status === 404) {
+                  alert('Page not found');
+                }
+              },
+
+               complete: () =>
+              { console.log(`Post: ${JSON.stringify(post)} has been created`)}
             });
    }
 
-   updatePost(post: Object){
-               this.service.updatePost(post)
+   updatePost(id: number){
+               this.service.updatePost(id)
                .subscribe(response => console.log(response));
       // this.http.put(this.url + '/' + post, JSON.stringify(post))
       //          .subscribe(response => console.log(response));
    }
 
    deletePost(post: any) {
-             this.service.deletePost(post)
+             this.service.deletePost(post.id)
               .subscribe({ 
-                
-              next: response => {
-              let index = this.posts.indexOf(post);
+
+              next: () => {
+              let index : number = this.posts.indexOf(post);
               this.posts.splice(index, 1);
               },
 
               error: (err: Response) => {
                 if (err.status === 404) {
                   alert('This post has already been deleted.');
-                  console.log(err);
+                  
                 }
 
                 else {
@@ -71,7 +82,7 @@ export class PostsComponent implements OnInit {
                 }  
               }, 
 
-               complete: () => console.log(`Post with id: ${JSON.stringify(post)} has been deleted.`)
+               complete: () => console.log(`Post: ${JSON.stringify(post)} has been deleted.`)
             });
    }
 

@@ -11,7 +11,9 @@
         class="list-group-item">
         <button type="button" class="btn btn-secondary"
                 (click)="updatePost(post)">Update</button>
-                <button type="button" class="btn btn-danger" (click)="deletePost(post)">Delete</button>        
+        <button type="button"
+                class="btn btn-danger"
+                (click)="deletePost(post)">Delete</button>        
         {{post.title}}
     </li>
 </ul>
