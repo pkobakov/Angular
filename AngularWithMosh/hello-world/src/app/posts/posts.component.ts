@@ -11,6 +11,7 @@ export class PostsComponent implements OnInit {
      
   url: string;
   posts : any;
+  errorMessage: string = '';
   constructor(private service: PostService, ) {
 
     this.url = service.url;
@@ -23,8 +24,10 @@ export class PostsComponent implements OnInit {
        next: response => {this.posts = response;
         console.log(response)
     }, 
-       error: err => {alert('An unexpected error occures');
-       console.log(err);
+
+        error: err => {
+         this.errorMessage = err;
+         alert(err);
       },
       
       complete: () => {console.log('All posts are loaded.')}
@@ -65,7 +68,7 @@ export class PostsComponent implements OnInit {
              this.service.deletePost(post.id)
               .subscribe({ 
 
-              next: () => {
+              next: (_response) => {
               let index : number = this.posts.indexOf(post);
               this.posts.splice(index, 1);
               },
