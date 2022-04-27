@@ -22,12 +22,12 @@ export class PostsComponent implements OnInit {
      this.service.getPosts()
      .subscribe({
        next: response => {this.posts = response;
-        console.log(response)
-    }
+        console.log(response)}
+
   });
      
-  }
-
+  
+   }
 
    createPost(input: HTMLInputElement) {
      let post : any = {title: input.value};
