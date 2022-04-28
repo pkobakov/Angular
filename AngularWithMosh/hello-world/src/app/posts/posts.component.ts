@@ -20,11 +20,10 @@ export class PostsComponent implements OnInit {
 
    ngOnInit(): void {
      this.service.getAll()
-     .subscribe({
-       next: response => {this.posts = response;
-        console.log(response)}
-
-  });
+     .subscribe(
+        posts => {this.posts = posts,
+        console.log(posts)}
+  );
      
   
    }
