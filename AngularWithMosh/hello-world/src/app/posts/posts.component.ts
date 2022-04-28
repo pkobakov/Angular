@@ -20,10 +20,18 @@ export class PostsComponent implements OnInit {
 
    ngOnInit(): void {
      this.service.getAll()
-     .subscribe(
-        posts => {this.posts = posts,
-        console.log(posts)}
-  );
+     .subscribe({
+        next: posts => {this.posts = posts,
+        console.log(posts)},
+
+         error: (err: Response) => {
+             if (err.status === 404) {
+
+                alert('Page Not Found');
+              }
+      },
+          complete: () => console.log('Posts are loaded.')
+    });
      
   
    }
@@ -33,7 +41,7 @@ export class PostsComponent implements OnInit {
      input.value= '';
      this.service.create(post)
               .subscribe({ 
-                next: (response: any) => { post['id'] = response.id;
+                next: (newPost: any) => { post['id'] = newPost.id;
                 this.posts.splice(0,0,post)
               },
 
@@ -45,13 +53,13 @@ export class PostsComponent implements OnInit {
               },
 
                complete: () =>
-              { console.log(`Post: ${JSON.stringify(post)} has been created`)}
+              { console.log(`Post: ${JSON.stringify(post)} has been created.`)}
             });
    }
 
    updatePost(id: number){
                this.service.update(id)
-               .subscribe(response => console.log(response));
+               .subscribe(updatedPost => console.log(updatedPost));
       // this.http.put(this.url + '/' + post, JSON.stringify(post))
       //          .subscribe(response => console.log(response));
    }
@@ -60,7 +68,7 @@ export class PostsComponent implements OnInit {
              this.service.delete(post.id)
               .subscribe({ 
 
-              next: (_response) => {
+              next: () => {
               let index : number = this.posts.indexOf(post);
               this.posts.splice(index, 1);
               },
