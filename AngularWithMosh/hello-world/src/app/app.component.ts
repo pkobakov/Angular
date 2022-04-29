@@ -22,7 +22,7 @@ export class AppComponent {
 
   title :string = 'Angular with Mosh Hamedani';
   imgUrl:string = 'https://ih1.redbubble.net/image.794225727.9827/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg';
-  
+  moshImg: string = 'https://pbs.twimg.com/profile_images/981311875643195393/dS0t6BQ8_400x400.jpg';
 
   courses = [
     {id: 1, name: 'courseOne'},
