@@ -1,10 +1,9 @@
 <div class="nav">
-    <h1 class="display-3 title">{{title[0]}}<span><img [src]="moshImg"
-            alt="mosh image"
-            style="width: 50px; border-radius: 100%;">
+    <h1 class="display-3 title">{{title[0]}}<span><img
+           class="mosh-image"
+           [src]="moshImg"
+           alt="mosh image">
         </span>{{title.substring(2)}}
     </h1>
-    
 </div>
-
-<home></home>
+<router-outlet></router-outlet>
