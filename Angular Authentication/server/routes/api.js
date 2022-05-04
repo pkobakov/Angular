@@ -36,6 +36,10 @@ router.post('/register', (req, res) => {
     })
 })
 
+router.get('/login', (req, res) =>{
+    res.send('From Login Route');
+})
+
 router.post('/login', (req, res) => {
     let userData = req.body;
 
