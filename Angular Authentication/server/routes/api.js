@@ -28,10 +28,12 @@ router.post('/register', (req, res) => {
     user.save((error, registeredUser) =>{
         if (error) {
             console.log(error);
-        } else {
             let payload = {subjet: registeredUser._id};
             let token = jwt.sign(payload, 'secretKey');
-            res.status(200).send({token})
+            res.status(200).send({token});
+            console.log({token});
+        } else {
+
         }
     })
 })
@@ -44,6 +46,7 @@ router.post('/login', (req, res) => {
     let userData = req.body;
 
     User.find({email: userData.email}, (error, user) => {
+       
         if (error) {
             console.log(error);
         } else {
@@ -51,7 +54,7 @@ router.post('/login', (req, res) => {
                 res.status(401).send('Invalid email');
             } else {
                 if (user.password !== userData.password) {
-                    res.status(401).send('Invalid password');
+                    res.status(401).send("Invalid password");
                 } else {
                     let payload = {subject: user._id};
                     let token = jwt.sign(payload, 'secretKey');
@@ -72,6 +75,30 @@ router.get('/events', (req, res) =>{
         },
         {
             "_id": "2",
+            "name": "Abc",
+            "description": "lorem ipsum",
+            "date": "2022-04-23T18:25:43.5112"
+        },
+        {
+            "_id": "3",
+            "name": "Abc",
+            "description": "lorem ipsum",
+            "date": "2022-04-23T18:25:43.5112"
+        },
+        {
+            "_id": "4",
+            "name": "Abc",
+            "description": "lorem ipsum",
+            "date": "2022-04-23T18:25:43.5112"
+        },
+        {
+            "_id": "5",
+            "name": "Abc",
+            "description": "lorem ipsum",
+            "date": "2022-04-23T18:25:43.5112"
+        },
+        {
+            "_id": "6",
             "name": "Abc",
             "description": "lorem ipsum",
             "date": "2022-04-23T18:25:43.5112"
