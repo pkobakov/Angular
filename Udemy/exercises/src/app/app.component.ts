@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'exercises';
+  imgUrl = 'https://cdn.careers.tufts.edu/wp-content/uploads/sites/100/2021/09/udemy.png'
+
 }
