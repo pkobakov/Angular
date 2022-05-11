@@ -28,12 +28,11 @@ router.post('/register', (req, res) => {
     user.save((error, registeredUser) =>{
         if (error) {
             console.log(error);
+        } else {
             let payload = {subjet: registeredUser._id};
             let token = jwt.sign(payload, 'secretKey');
             res.status(200).send({token});
             console.log({token});
-        } else {
-
         }
     })
 })

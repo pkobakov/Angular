@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { LoginModel } from '../models/login.model';
 
 @Component({
@@ -9,8 +10,10 @@ import { LoginModel } from '../models/login.model';
 export class LoginComponent implements OnInit {
 
   model!: LoginModel;
+  loginFailed!: boolean;
+  errMessage!: string;
 
-  constructor() {
+  constructor(private loginService: AuthService) {
     this.model = new LoginModel('','');
    }
 
@@ -20,6 +23,13 @@ export class LoginComponent implements OnInit {
   
   
   login() {
+    this.loginService.login(this.model)
+                     .subscribe(data=>{
+
+                     },
+                     err => {
+
+                     })
      
   }
 
