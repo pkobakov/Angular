@@ -23,7 +23,7 @@ export class GameControlComponent implements OnInit {
   }
 
   onPause(){
-
+     clearInterval(this.interval);
   }
 
 }
