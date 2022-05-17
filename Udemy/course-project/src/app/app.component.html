@@ -1,9 +1,9 @@
-<header></header>
+<header (selectedFeature)="onNavigate($event)"></header>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <recipes></recipes>
-            <shopping-list></shopping-list> 
+            <recipes *ngIf="loadedFeature === 'recipe'"></recipes>
+            <shopping-list *ngIf="loadedFeature !== 'recipe'"></shopping-list> 
         </div>
     </div>
 </div>
