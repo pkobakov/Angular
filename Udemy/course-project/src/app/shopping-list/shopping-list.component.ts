@@ -17,4 +17,8 @@ ingredients: Ingredient[] = [
 
   }
 
+  onIngredientAdded(ingredient: Ingredient) {
+    this.ingredients.push(ingredient);
+  }
+
 }
