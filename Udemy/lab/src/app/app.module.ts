@@ -6,13 +6,15 @@ import { BasicHighlightDirective } from 'src/basic-highlight/basic-highlight.dir
 import { AppComponent } from './app.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerComponent } from './server/server.component';
+import { BetterHighlightDirective } from './better-highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     CockpitComponent,
     ServerComponent,
-    BasicHighlightDirective
+    BasicHighlightDirective,
+    BetterHighlightDirective
   ],
   imports: [
     BrowserModule, 
