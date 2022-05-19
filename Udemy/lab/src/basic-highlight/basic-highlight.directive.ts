@@ -13,4 +13,5 @@ export class BasicHighlightDirective implements OnInit {
         this.elementRef.nativeElement.style.backgroundColor = 'green';
         this.elementRef.nativeElement.style.color = 'white';
     }
+    
 }
