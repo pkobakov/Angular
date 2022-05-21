@@ -43,14 +43,14 @@
       </ul>
       <p appBasicHighlight>This is my basic highlight directive</p>
       <p [appBetterHighlight]="'red'" defaultColor="blue" >This is the better highlight directive</p>
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="10">The Value is 10</p>
+        <p *ngSwitchCase="20">The Value is 20</p>
+        <p *ngSwitchCase="30">The Value is 30</p>
+        <p *ngSwitchCase="40">The Value is 40</p> 
+      </div>
     </div>
-    <input type="text" class="form-control">
-    <div [ngSwitch]="value">
-      <p *ngSwitchCase="10">The Value is 10</p>
-      <p *ngSwitchCase="20">The Value is 20</p>
-      <p *ngSwitchCase="30">The Value is 30</p>
-      <p *ngSwitchCase="40">The Value is 40</p> 
-    </div>
+
   </div>
 </div>
 
