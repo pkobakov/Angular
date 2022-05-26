@@ -15,7 +15,7 @@ export class ChildComponent implements OnInit {
   }
 
   onClick() {
-    this.notify.emit('Message form child');
+    this.notify.emit('Message from child');
   }
 
 }

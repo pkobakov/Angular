@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Event Emitter Demo';
-  outsideMessage!: string;
+  message!: string;
   constructor() {
 
   }
 
-  getMessageFromChild(message: string) {
-      this.outsideMessage = message;
+  getMessageFromChild(messageFromChild: string) {
+      this.message = messageFromChild;
   }
 }
