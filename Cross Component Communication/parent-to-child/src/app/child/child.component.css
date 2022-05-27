@@ -1,0 +1,6 @@
+.container {
+    background-color: rgb(102, 136, 240);
+    color: rgb(35, 45, 76);
+    border: solid 2px rgb(35, 45, 76);
+    border-radius: 4px;
+}
