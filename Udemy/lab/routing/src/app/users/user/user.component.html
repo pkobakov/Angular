@@ -1,2 +1,3 @@
-<p>User with ID:  {{user.id}} loaded.</p>
-<p>User name is {{user.name}}</p>
+<p>User with ID: {{user.id}} loaded.</p>
+<p>User name is {{user.name | titlecase}}</p>
+<a [routerLink]="['/users', 10, 'Anna']">Load Anna</a>
