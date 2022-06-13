@@ -12,6 +12,7 @@ export class AppComponent {
   defaultUsername = 'test'
   defaultQuestion = 'teacher';
   answer = '';
+  genders = ['male', 'female'];
 
   suggestUserName() {
     const suggestedName = 'Superuser';
