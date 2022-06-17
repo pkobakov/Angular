@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from './shopping-list.service';
@@ -9,7 +10,8 @@ import { ShoppingListService } from './shopping-list.service';
   styleUrls: ['./shopping-list.component.css'],
 })
 export class ShoppingListComponent implements OnInit, OnDestroy {
-ingredients!: Ingredient[];
+ 
+  ingredients!: Ingredient[];
 private shoppingListSub!: Subscription;
 
   constructor( private shoppingListService: ShoppingListService) { }
@@ -20,6 +22,10 @@ private shoppingListSub!: Subscription;
                             .subscribe((ingredients: Ingredient[]) =>{
                                this.ingredients = ingredients;
                             })
+  }
+
+  onEditItem(index: number) {
+    this.shoppingListService.startedEditing.next(index);
   }
 
   ngOnDestroy(): void {
