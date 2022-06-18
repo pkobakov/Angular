@@ -6,7 +6,8 @@
                         <button class="btn btn-success"
                                 style="margin-right: 5px;"
                                 [disabled]="!recipeForm.valid">Save</button>
-                        <button class="btn btn-danger">Cancel</button>
+                        <button class="btn btn-danger"
+                                (click)="onCancel()">Cancel</button>
                 </div>
             </div>
             <div class="row">
