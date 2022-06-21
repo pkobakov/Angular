@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { Post } from './post.model';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  loadedPosts = [];
+  loadedPosts: Post[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   onCreatePost(postData: { title: string; content: string }) {
     // Send Http request
 
-    this.http.post('https://my-first-ng-project-199cc-default-rtdb.firebaseio.com/posts.json', postData)
+    this.http.post<{name: string}>('https://my-first-ng-project-199cc-default-rtdb.firebaseio.com/posts.json', postData)
               .subscribe(response => console.log(postData));
 
   }
@@ -37,9 +38,9 @@ export class AppComponent implements OnInit {
   }
 
   private fetchPosts() {
-    this.http.get('https://my-first-ng-project-199cc-default-rtdb.firebaseio.com/posts.json')
+    this.http.get<{[key: string]: Post}>('https://my-first-ng-project-199cc-default-rtdb.firebaseio.com/posts.json')
              .pipe(map(responseData => {
-              const postsArray = [];
+              const postsArray: Post[] = [];
                 for(const key in responseData) {
                   if (responseData.hasOwnProperty(key)) {
                     postsArray.push({...responseData[key], id: key})
@@ -47,6 +48,6 @@ export class AppComponent implements OnInit {
                 }
                 return postsArray;
              }))
-             .subscribe(posts => console.log(posts));
+             .subscribe(posts => this.loadedPosts = posts);
   }
 }
