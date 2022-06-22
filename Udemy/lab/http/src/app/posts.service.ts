@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Subject, throwError } from "rxjs";
 import {map, catchError} from 'rxjs/operators';
@@ -27,7 +27,12 @@ error = new Subject<string>();
 
  fetchPosts() {
 
-    return this.http.get<{[key: string]: Post}>(this.url)
+    return this.http.get<{[key: string]: Post}>(
+      this.url, {
+      headers: new HttpHeaders({
+        'Custom-Header': 'Hello'
+      })
+    })
                .pipe(map(responseData => {
                 const postsArray: Post[] = [];
                   for(const key in responseData) {
