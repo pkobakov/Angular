@@ -12,6 +12,8 @@ import { PostsService } from './posts.service';
 export class AppComponent implements OnInit {
   loadedPosts: Post[] = [];
   isFetching = false;
+  error = null;
+  message = 'Error 401, Unauthorized';
 
   constructor(private http: HttpClient,
               private postsService: PostsService) {}
@@ -23,6 +25,10 @@ export class AppComponent implements OnInit {
                       .subscribe(posts => {
                         this.isFetching = false;
                         this.loadedPosts = posts;
+                      }, 
+                      error => {
+                        error.message = this.message;
+                        this.error = error;
                       });
   }
 
@@ -35,13 +41,26 @@ export class AppComponent implements OnInit {
 
   onFetchPosts() {
     // Send Http request
-   this.postsService.fetchPosts();
+   this.isFetching = true;   
+   this.postsService.fetchPosts()
+   .subscribe( posts => {
+    this.isFetching = false;
+    this.loadedPosts = posts;
+   }, error => {
+    error.message = this.message;
+    this.error = error;
+  });
 
 
   }
 
   onClearPosts() {
     // Send Http request
+    this.postsService.deletePosts()
+                     .subscribe(() => {
+                      this.loadedPosts = [];
+                     })
+
   }
 
 
