@@ -55,7 +55,8 @@ error = new Subject<string>();
 
  deletePosts() {
   return this.http.delete(this.url, {
-    observe: 'events'
+    observe: 'events',
+    responseType: 'json'
   })
   .pipe(tap( event => {
     console.log(event);
