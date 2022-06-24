@@ -24,14 +24,6 @@ export class RecipeService {
                     [
                         new Ingredient ('beef meat', 150),
                         new Ingredient ('cedar', 100)
-                    ]),  
-                    
-        new Recipe ('Spaghetti',
-                    'Some description here',
-                    'https://image.similarpng.com/thumbnail/2022/03/Spaghetti-in-dish-isolated-on-transparent-background-PNG.png',
-                    [
-                      new Ingredient ('spaghetti', 500),
-                      new Ingredient ('meat balls', 150)
                     ])
       ];
 
