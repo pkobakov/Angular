@@ -9,7 +9,7 @@ export class RecipeService {
 
     // selectedRecipe = new EventEmitter<Recipe>();
     // selectedRecipe = new Subject<Recipe>();
-   recipesChanged = new Subject<Recipe[]>();
+ recipesChanged = new Subject<Recipe[]>();
    private recipes: Recipe [] = [
         new Recipe ('Pizza Margherita',
                     'Some description here' ,
@@ -27,8 +27,14 @@ export class RecipeService {
                     ])
       ];
 
-      constructor(private shoppingListService : ShoppingListService) {
+      // private recipes: Recipe[] = [];
 
+      constructor(private shoppingListService : ShoppingListService) {
+      }
+
+      setRecipes(recipes:Recipe[]) {
+        this.recipes = recipes;
+        this.recipesChanged.next(this.recipes.slice());
       }
 
       getRecipes() {
