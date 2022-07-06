@@ -19,9 +19,6 @@ import { RecipesModule } from './recipes/recipes.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ShoppingListModule,
-    RecipesModule,
-    AuthModule,
     AppRoutingModule,
     SharedModule,
     CoreModule
