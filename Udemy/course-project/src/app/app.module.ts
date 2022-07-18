@@ -27,7 +27,7 @@ import { shoppingListReducer } from './shopping-list/store/shopping.reducer';
     ShoppingListModule,
     AuthModule,
     RecipesModule,
-    StoreModule.forRoot({shoppingLst: shoppingListReducer})
+    StoreModule.forRoot({shoppingList: shoppingListReducer})
   ],
               
   bootstrap: [AppComponent]

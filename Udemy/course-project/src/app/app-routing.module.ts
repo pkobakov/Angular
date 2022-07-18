@@ -9,17 +9,17 @@ const appRoutes: Routes = [
 
   { 
     path: 'recipes', 
-    loadChildren: 'src/app/recipes/recipes.module#RecipesModule'
+    loadChildren: () => import('src/app/recipes/recipes.module').then(m => m.RecipesModule)
   },
 
   { 
     path: 'auth',
-    loadChildren: 'src/app/auth/auth.module#AuthModule'
+    loadChildren: () => import('src/app/auth/auth.module').then(m => m.AuthModule)
   },
 
   {
     path: 'shopping-list',
-    loadChildren: 'src/app/shopping-list/shopping-list.module#ShoppingListModule'
+    loadChildren: () => import('src/app/shopping-list/shopping-list.module').then(m => m.ShoppingListModule)
   }
 ];
 

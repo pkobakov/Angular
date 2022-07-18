@@ -12,7 +12,6 @@ import { PlaceHolderDirective } from "./placeholder/placeholder.directive";
         PlaceHolderDirective,
         DropdownDirective
     ],
-
     imports: [
         CommonModule
     ],
@@ -22,7 +21,7 @@ import { PlaceHolderDirective } from "./placeholder/placeholder.directive";
         PlaceHolderDirective,
         DropdownDirective,
         CommonModule
-    ], entryComponents:[AlertComponent]
+    ]
 })
 export class SharedModule {
 
