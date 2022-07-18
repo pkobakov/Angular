@@ -19,7 +19,7 @@ const appRoutes: Routes = [
 
   {
     path: 'shopping-list',
-    loadChildren: 'src/shopping-list/shopping-list.module@ShoppingListModule'
+    loadChildren: 'src/app/shopping-list/shopping-list.module#ShoppingListModule'
   }
 ];
 

@@ -21,7 +21,10 @@ import { RecipesModule } from './recipes/recipes.module';
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    ShoppingListModule,
+    AuthModule,
+    RecipesModule
   ],
               
   bootstrap: [AppComponent]
