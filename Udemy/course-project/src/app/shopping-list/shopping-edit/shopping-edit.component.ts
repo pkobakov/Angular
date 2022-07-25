@@ -20,10 +20,9 @@ import { UpdateIngredient, DeleteIngredient } from '../store/shopping-list.actio
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit, OnDestroy {
-  @ViewChild('f', { static: false }) slForm: NgForm;
+  @ViewChild('f', {static: false}) slForm: NgForm;
   subscription: Subscription;
   editMode = false;
-  editedItemIndex: number;
   editedItem: Ingredient;
 
   constructor(private slService: ShoppingListService,
@@ -33,17 +32,16 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
    this.subscription = this.store.select('shoppingList')
               .subscribe( stateData => {
                 if (stateData.editedIngredientIndex > -1) {
-                  this.editMode == true;
+                  this.editMode = true;
                   this.editedItem = stateData.editedIngredient;
                   this.slForm.setValue({
                     name: this.editedItem.name,
                     amount: this.editedItem.amount
                   });
                 } else {
-                  this.editMode == false;
+                  this.editMode = false;
                 }
               }
-
     );
     
   }
@@ -54,10 +52,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     if (this.editMode) {
       // this.slService.updateIngredient(this.editedItemIndex, newIngredient);
       this.store.dispatch(
-        new UpdateIngredient({
-            index: this.editedItemIndex,
-            ingredient: newIngredient
-          })
+        new UpdateIngredient(newIngredient)
           );
     } else {
       // this.slService.addIngredient(newIngredient);
@@ -76,7 +71,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   onDelete() {
     // this.slService.deleteIngredient(this.editedItemIndex);
 
-    this.store.dispatch( new DeleteIngredient(this.editedItemIndex));
+    this.store.dispatch( new DeleteIngredient());
     this.onClear();
   }
 

@@ -1,3 +1,4 @@
+import { stat } from 'fs';
 import { Ingredient } from '../../shared/ingredient.model';
 import * as ShoppingListActions from './shopping-list.actions';
 
@@ -35,25 +36,32 @@ export function shoppingListReducer(
       };  
 
     case ShoppingListActions.UPDATE_INGREDIENT:
-      const ingredient = state.ingredients[action.payload.index];
+      const ingredient = state.ingredients[state.editedIngredientIndex];
       const changedIngredient = {
         ...ingredient,
-        ...action.payload.ingredient
+        ...action.payload
       };
 
       const updatedIngredients = [...state.ingredients];
-      updatedIngredients[action.payload.index] = changedIngredient;
+      updatedIngredients[state.editedIngredientIndex] = changedIngredient;
 
-      return {...state,
-              ingredients: updatedIngredients
+      return {
+              ...state,
+              ingredients: updatedIngredients,
+              editedIngredientIndex: -1,
+              editedIngredient: null
             };
 
     case ShoppingListActions.DELETE_INGREDIENT:
 
-      return {...state,
-              ingredients: state.ingredients.filter( (ingredient, ingIndex) => {
-                return ingIndex !== action.payload;
-              })};
+      return { 
+              ...state,
+              ingredients: state.ingredients.filter( (ig, igIndex) => {
+                return igIndex !== state.editedIngredientIndex;
+              }),
+              
+              editedIngredientIndex: -1,
+              editedIngredient: null};
 
     case ShoppingListActions.START_EDIT:
       return {
@@ -65,7 +73,8 @@ export function shoppingListReducer(
     case ShoppingListActions.STOP_EDIT:
       return {
         ...state,
-        editedIngredient: null
+        editedIngredient: null,
+        editedIngredientIndex: -1
       };
 
     default:
