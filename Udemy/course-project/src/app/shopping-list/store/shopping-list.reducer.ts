@@ -1,4 +1,3 @@
-import { stat } from 'fs';
 import { Ingredient } from '../../shared/ingredient.model';
 import * as ShoppingListActions from './shopping-list.actions';
 
@@ -59,7 +58,7 @@ export function shoppingListReducer(
               ingredients: state.ingredients.filter( (ig, igIndex) => {
                 return igIndex !== state.editedIngredientIndex;
               }),
-              
+
               editedIngredientIndex: -1,
               editedIngredient: null};
 
