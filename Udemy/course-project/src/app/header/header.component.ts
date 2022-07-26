@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { map, mapTo } from 'rxjs/operators';
 
 import { DataStorageService } from '../shared/data-storage.service';
 import { AuthService } from '../auth/auth.service';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../store/app.reducer';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',

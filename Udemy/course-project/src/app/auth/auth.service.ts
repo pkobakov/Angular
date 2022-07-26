@@ -93,6 +93,8 @@ export class AuthService {
       new Date(userData._tokenExpirationDate)
     );
 
+    const expirationDate = new Date(userData._tokenExpirationDate);
+
     if (loadedUser.token) {
       // this.user.next(loadedUser);
       this.store.dispatch(
@@ -100,10 +102,9 @@ export class AuthService {
                 email: loadedUser.email,
                 userId: loadedUser.id,
                 token: loadedUser.token,
-                expirationDate: new Date(userData._tokenExpirationDate)
+                expirationDate: expirationDate
         })
-        
-        );
+      );
       const expirationDuration =
         new Date(userData._tokenExpirationDate).getTime() -
         new Date().getTime();

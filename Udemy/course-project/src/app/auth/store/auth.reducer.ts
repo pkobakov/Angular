@@ -25,7 +25,7 @@ export function authReducer (state = initialState, action: AuthActions.AuthActio
             return {
                 ...state,
                 user: null
-            }
+            };
         default: return state;        
     }
 }
