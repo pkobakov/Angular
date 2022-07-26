@@ -20,7 +20,7 @@ import * as fromApp from './store/app.reducer';
     SharedModule,
     CoreModule
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
   // providers: [LoggingService]
 })
 export class AppModule {}

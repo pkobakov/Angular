@@ -8,9 +8,6 @@ import { AuthService } from '../auth/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {
-
-  url = 'https://the-recipe-book-39317-default-rtdb.firebaseio.com/recipes.json';
-
   constructor(
     private http: HttpClient,
     private recipeService: RecipeService,
@@ -20,7 +17,10 @@ export class DataStorageService {
   storeRecipes() {
     const recipes = this.recipeService.getRecipes();
     this.http
-      .put(this.url, recipes)
+      .put(
+        'https://the-recipe-book-39317-default-rtdb.firebaseio.com/recipes.json',
+        recipes
+      )
       .subscribe(response => {
         console.log(response);
       });
@@ -28,7 +28,9 @@ export class DataStorageService {
 
   fetchRecipes() {
     return this.http
-      .get<Recipe[]>(this.url)
+      .get<Recipe[]>(
+        'https://the-recipe-book-39317-default-rtdb.firebaseio.com/recipes.json'
+      )
       .pipe(
         map(recipes => {
           return recipes.map(recipe => {
