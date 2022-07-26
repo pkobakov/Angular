@@ -9,8 +9,8 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importHelpers": false,
-    "target": "es6",
+    "importHelpers": true,
+    "target": "ES6",
     "typeRoots": [
       "node_modules/@types"
     ],
