@@ -37,12 +37,6 @@ export class AuthenticateFail implements Action{
   constructor(public payload: string) {}
 } 
 
-export class Signup implements Action {
-  readonly type = SIGNUP_START;
-  constructor(public payload: {email:  string, password: string}) {
-  }
-}
-
 export class SignupStart implements Action {
   readonly type = SIGNUP_START;
   constructor(public payload: {email: string, password: string}) {
