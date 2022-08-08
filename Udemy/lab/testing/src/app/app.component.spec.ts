@@ -10,11 +10,19 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
+  it(`should have as title 'testing'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('testing');
+  })
+
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
+
+  
 
   it(`should have as title 'testing'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
